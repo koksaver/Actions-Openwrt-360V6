@@ -16,11 +16,11 @@ on:
     inputs:
       ssh:
         description: 'SSH connection to Actions'
-        required: false
-        default: 'false'
+        required: true
+        default: 'true'
 
 env:
-  REPO_URL: https://github.com/immortalwrt/immortalwrt.git
+  REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: openwrt-21.02
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/BYGDOCK.config
