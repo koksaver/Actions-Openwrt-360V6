@@ -35,7 +35,6 @@ env:
 jobs:
   build:
     runs-on: Ubuntu-22.04
-#     if: github.event.repository.owner.id == github.event.sender.id
     
     steps:
     - name: Checkout
@@ -74,6 +73,10 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
+
+    - name: Update  clean
+      run: cd openwrt && ./scripts/feeds clean
+
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -88,8 +91,6 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
     - name: SSH connection to Actions
-#      uses: csexton/debugger-action@master
-      if: env.SSH_ACTIONS == 'true'
       uses: P3TERX/ssh2actions@v1.0.0
       if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
       env:
