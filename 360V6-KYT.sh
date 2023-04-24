@@ -6,16 +6,20 @@
 # See /LICENSE for more information.
 #
 # https://github.com/P3TERX/Actions-OpenWrt
-# File name: diy-par4.sh
+# File name: diy-part8.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
 #
 
-# 修改默认IP
+# '修改默内核'
+# sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/g' target/linux/ipq40xx/Makefile         # ipq40xx，内核：5.4，内核为5.10
+ 
+# '修改默认IP'
 
-sed -i 's/192.168.1.1/192.168.3.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
-#修改默认主机名
-sed -i 's/OpenWrt/CM520/g' package/base-files/files/bin/config_generate
+
+# '修改默认主机名'
+sed -i 's/OpenWrt/360V6/g' package/base-files/files/bin/config_generate
 
 
 # 删除 'lean部分包'
@@ -96,6 +100,7 @@ sed -i 's/解锁网易云灰色歌曲/音乐解锁/g' feeds/luci/applications/lu
 sed -i 's/TTYD 终端/超级终端/g' feeds/luci/applications/luci-app-ttyd/po/zh-cn/terminal.po
 # 设置ttyd免帐号登录
 sed -i 's/\/bin\/login/\/bin\/login -f root/' feeds/packages/utils/ttyd/files/ttyd.config
+
 
 #'修改WIFI国家区域'
 sed -i 's/US/CN/g' package/kernel/mac80211/files/lib/wifi/mac80211.sh
