@@ -8,7 +8,13 @@
 # https://github.com/P3TERX/Actions-OpenWrt
 # File name: diy-part8.sh
 # Description: OpenWrt DIY script part 2 (After Update feeds)
-#
+
+
+# '写入软件库'
+
+ echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
+
+ echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
 # '修改默内核'
 # sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/g' target/linux/ipq40xx/Makefile         # ipq40xx，内核：5.4，内核为5.10
