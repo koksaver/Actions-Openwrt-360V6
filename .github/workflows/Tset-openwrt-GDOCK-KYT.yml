@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 # fanpester
 
-name: Build openwrt-GDOCK-KYT
+name: Tset openwrt-GDOCK-KYT
 
 on:
   repository_dispatch:
