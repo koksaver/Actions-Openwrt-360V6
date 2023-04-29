@@ -1,4 +1,4 @@
-name: Build IMM619AC
+name: Build IMMOpenwrt TEST
 
 on:
   repository_dispatch:
