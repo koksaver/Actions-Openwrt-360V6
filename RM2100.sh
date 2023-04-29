@@ -32,6 +32,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci
 # 删除 'lean主题'
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-bootstrap
+rm -rf feeds/luci/collections/luci-ssl-nginx
 rm -rf feeds/luci/themes/luci-theme-material
 rm -rf feeds/luci/themes/luci-theme-netgear
 rm -rf feeds/luci/themes/luci-theme-argon-mod
