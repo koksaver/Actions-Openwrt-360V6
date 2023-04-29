@@ -6,7 +6,7 @@
 #
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
-# fanpester
+#
 
 name: Tset openwrt-GDOCK-KYT
 
@@ -38,40 +38,48 @@ jobs:
 
     steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v3
 
-    - name: ¼ì²é·şÎñÆ÷ÅäÖÃ
+    - name: æ£€æŸ¥æœåŠ¡å™¨é…ç½®
       run: |
-        echo "¾¯¸æ?"
-        echo "·ÖÅäµÄ·şÎñÆ÷ĞÔÄÜÓĞÏŞ£¬ÈôÑ¡ÔñµÄ²å¼ş¹ı¶à£¬Îñ±Ø×¢ÒâCPUĞÔÄÜ£¡"
-        echo "ÔÆ±àÒë½¨ÒéÈ¡Ïû¹´Ñ¡Node.js¼°ÆäÏà¹Ø²å¼ş£¡"
-        echo "ÒÑÖªCPUĞÍºÅ£¨½µĞò£©£º8370C,8272CL,8171M,E5ÏµÁĞ"
-        echo "--------------------------CPUĞÅÏ¢--------------------------"
-        echo "CPUÎïÀíÊıÁ¿:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
-        echo -e "CPUºËĞÄ¼°°æ±¾ĞÅÏ¢£º$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
-        echo "--------------------------ÄÚ´æĞÅÏ¢--------------------------"
-        echo "ÒÑ°²×°ÄÚ´æÏêÏ¸ĞÅÏ¢£º"
+        echo "è­¦å‘Šâš "
+        echo "åˆ†é…çš„æœåŠ¡å™¨æ€§èƒ½æœ‰é™ï¼Œè‹¥é€‰æ‹©çš„æ’ä»¶è¿‡å¤šï¼ŒåŠ¡å¿…æ³¨æ„CPUæ€§èƒ½ï¼"
+        echo "äº‘ç¼–è¯‘å»ºè®®å–æ¶ˆå‹¾é€‰Node.jsåŠå…¶ç›¸å…³æ’ä»¶ï¼"
+        echo "å·²çŸ¥CPUå‹å·ï¼ˆé™åºï¼‰ï¼š8370C,8272CL,8171M,E5ç³»åˆ—"
+        echo "--------------------------CPUä¿¡æ¯--------------------------"
+        echo "CPUç‰©ç†æ•°é‡:$(cat /proc/cpuinfo| grep "physical id"| sort| uniq| wc -l)"
+        echo -e "CPUæ ¸å¿ƒåŠç‰ˆæœ¬ä¿¡æ¯ï¼š$(cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c) \n"
+        echo "--------------------------å†…å­˜ä¿¡æ¯--------------------------"
+        echo "å·²å®‰è£…å†…å­˜è¯¦ç»†ä¿¡æ¯ï¼š"
         sudo lshw -short -C memory | grep GiB
         echo -e "\n"
-        echo "--------------------------Ó²ÅÌĞÅÏ¢--------------------------"
-        echo -e  "Ó²ÅÌÊıÁ¿£º$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
-        echo "Ó²ÅÌÏêÇé£º"
+        echo "--------------------------ç¡¬ç›˜ä¿¡æ¯--------------------------"
+        echo -e  "ç¡¬ç›˜æ•°é‡ï¼š$(ls /dev/sd* | grep -v [1-9] | wc -l) \n"
+        echo "ç¡¬ç›˜è¯¦æƒ…ï¼š"
         df -Th
         
-    - name: ³õÊ¼»¯±àÒë»·¾³
+    - name: åˆå§‹åŒ–ç¼–è¯‘ç¯å¢ƒ
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
         sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL git.io/depends-ubuntu-2004)
+        sudo -E apt-get -qq install -y build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev \
+        libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs \
+        git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx \
+        libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget \
+        curl swig rsync aria2 ca-certificates python3-pyelftools libpython3-dev yasm python3-setuptools libfuse-dev
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        # æ¸…ç†å¤šä½™æ–‡ä»¶ï¼Œè…¾å‡ºç£ç›˜ç©ºé—´
+        docker rmi `docker images -q`
+        sudo -E apt-get remove -y --purge azure-cli ghc zulu* hhvm llvm* firefox google* dotnet* powershell mysql* php* mssql-tools msodbcsql17 android*
+        sudo rm -rf /etc/mysql /etc/php /swapfile
 
-    - name: ¿ËÂ¡Ô´Âë
+    - name: å…‹éš†æºç 
       working-directory: /workdir
       run: |
         df -hT $PWD
@@ -84,20 +92,20 @@ jobs:
         ccache: 'true'
         prefix: ${{ github.workspace }}/openwrt
 
-    - name: ¼ÓÔØ×Ô¶¨Òåfeeds
+    - name: åŠ è½½è‡ªå®šä¹‰feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: ¸üĞÂfeeds
+    - name: æ›´æ–°feeds
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: °²×°feeds
+    - name: å®‰è£…feeds
       run: cd openwrt && ./scripts/feeds install -a
-
-    - name: ¼ÓÔØ×Ô¶¨ÒåÅäÖÃ
+    
+    - name: åŠ è½½è‡ªå®šä¹‰é…ç½®
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
@@ -105,14 +113,7 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
-    - name: SSH connection to Actions
-      uses: P3TERX/ssh2actions@v1.0.0
-      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
-      env:
-        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
-    - name: ÏÂÔØÈí¼ş°ü
+    - name: ä¸‹è½½è½¯ä»¶åŒ…
       id: package
       run: |
         cd openwrt
@@ -121,45 +122,53 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: ±àÒë¹Ì¼ş
+    - name: ç¼–è¯‘å›ºä»¶
       id: compile
       run: |
         cd openwrt
+        echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+        echo "TAG_DATE=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_ENV
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
         grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
         [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
-        echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
-    - name: ¼ì²é´ÅÅÌ¿Õ¼ä
+    - name: æ£€æŸ¥ç£ç›˜ç©ºé—´
       if: (!cancelled())
       run: df -hT
 
-    - name: ÉÏ´«binÎÄ¼ş¼Ğ
-      uses: actions/upload-artifact@main
+    - name: ä¸Šä¼ binæ–‡ä»¶å¤¹
+      uses: actions/upload-artifact@v3
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
-    - name: ÕûÀíÎÄ¼ş
+    - name: æ•´ç†æ–‡ä»¶
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
+        # rm -rf *.buildinfo
+        rm -rf profiles.json
+        rm -rf *.manifest
+        rm -rf *-kernel.bin
+        rm -rf *-rootfs.img
+        rm -rf *-rootfs.img.gz
+        rm -rf sha256sums
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: ÉÏ´«¹Ì¼ş
-      uses: actions/upload-artifact@main
+    - name: ä¸Šä¼ å›ºä»¶
+      uses: actions/upload-artifact@v3
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
         name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
-    - name: Éú³Érelease±êÇ©
+    - name: ç”Ÿæˆreleaseæ ‡ç­¾
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
@@ -167,7 +176,7 @@ jobs:
         touch release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: ·¢²¼¹Ì¼ş
+    - name: å‘å¸ƒå›ºä»¶
       uses: softprops/action-gh-release@v1
       if: steps.tag.outputs.status == 'success' && !cancelled()
       env:
@@ -177,17 +186,17 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
-    - name: ÇåÀí workflow
+    - name: æ¸…ç†workflow
       uses: Mattraks/delete-workflow-runs@main
       with:
         retain_days: 1
         keep_minimum_runs: 3
 
-    - name: ÇåÀíReleases
-      uses: dev-drprasad/delete-older-releases@v0.1.0
+    - name: æ¸…ç†Releases
+      uses: dev-drprasad/delete-older-releases@v0.2.1
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       with:
-        keep_latest: 10
+        keep_latest: 3
         delete_tags: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
