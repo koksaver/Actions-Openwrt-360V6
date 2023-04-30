@@ -17,6 +17,8 @@
 
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
+# 复制DTS
+cp -rf $GITHUB_WORKSPACE/diy/360V6/ipq6018-v6.dts ./target/linux/ipq60xx/files-4.4/arch/arm64/boot/dts/qcom/qcom-ipq6018-qihoo-v6.dts
 
 # '修改默认主机名'
 # sed -i 's/ImmortalWrt/360V6/g' package/base-files/files/bin/config_generate
