@@ -54,6 +54,11 @@ rm -rf feeds/kenzok/luci-app-passwall
 rm -rf feeds/kenzok/luci-app-openclash
 rm -rf feeds/kenzok/luci-theme-argon
 rm -rf feeds/kenzok/luci-app-argon-config
+rm -rf package/feeds/kenzo/luci-app-dockerman
+rm -rf package/feeds/kenzo/luci-app-easymesh
+rm -rf package/feeds/small/sing-box
+rm -rf package/feeds/kenzo/luci-app-amlogic
+
 
 # '添加argon-config 使用最新argon
 # rm -rf package/lean/luci-theme-argon
@@ -70,7 +75,7 @@ git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 # '管控插件'
 git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-control-weburl
 svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
-git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
+# git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
 
 # weburl 文件加执行权限
 chmod 7777 files/etc/init.d/weburl 
