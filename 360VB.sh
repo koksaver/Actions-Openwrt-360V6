@@ -15,7 +15,8 @@
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 # 复制DTS 
-cp -rf $GITHUB_WORKSPACE/diy/360V6/ipq6018-v6.dts ./target/linux/ipq60xx/files-4.4/arch/arm64/boot/dts/qcom/qcom-ipq6018-qihoo-v6.dts
+cp -rf $GITHUB_WORKSPACE/diy/360V6/ipq6018-v6.dts ./target/linux/ipq60xx/files/arch/arm64/boot/dts/qcom/ipq6018-v6.dts
+
 
 # passwall依赖
 git clone https://github.com/kenzok8/small.git package/small
