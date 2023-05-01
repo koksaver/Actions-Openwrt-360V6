@@ -71,6 +71,18 @@ rm -rf feeds/luci/themes/luci-theme-material
 rm -rf feeds/luci/themes/luci-theme-netgear
 rm -rf feeds/luci/themes/luci-theme-argon-mod
 
+# 删除 '插件'
+rm -rf package/feeds/packages/acme
+rm -rf package/feeds/routing/bird1-ipv4-openwrt
+rm -rf package/feeds/routing/bird1-ipv6-openwrt
+rm -rf package/feeds/packages/dynapoint
+rm -rf package/feeds/routing/luci-app-bmx6
+rm -rf package/feeds/routing/luci-app-bmx7
+rm -rf package/feeds/routing/luci-app-cjdns
+rm -rf package/feeds/packages/prometheus-node-exporter-lua
+rm -rf package/small/sing-box
+rm -rf 'package/feeds/packages/sqm-scripts
+
 
 
 
