@@ -19,4 +19,6 @@
 
 # echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
-sed -i 's%../extra/luci%https://github.com/coolsnowwolf/luci%g' ./feeds.conf.default
+# sed -i 's%../extra/luci%https://github.com/coolsnowwolf/luci%g' ./feeds.conf.default
+rm -rf ./feeds.conf.default
+svn co https://github.com/coolsnowwolf/lede/trunk/feeds.conf.default ./feeds.conf.default
