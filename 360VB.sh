@@ -23,14 +23,15 @@ rm -rf package/small/luci-app-passwall
 rm -rf package/small/luci-app-passwall2
 rm -rf package/small/luci-app-ssr-plus
 
-# 常用插件
+# 常用插件 
+git clone https://github.com/siwind/luci-app-wolplus.git package/luci-app-wolplus
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-control-weburl
 git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
 svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
-svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
-svn co https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic package/UnblockNeteaseMusic
+# svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-unblockneteasemusic
+# svn co https://github.com/kenzok8/openwrt-packages/trunk/UnblockNeteaseMusic package/UnblockNeteaseMusic
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-adguardhome package/luci-app-adguardhome
 svn co https://github.com/kenzok8/openwrt-packages/trunk/adguardhome package/adguardhome
 svn co https://github.com/kenzok8/openwrt-packages/trunk/luci-app-ddnsto package/luci-app-ddnsto
