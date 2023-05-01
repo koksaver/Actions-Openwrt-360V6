@@ -25,10 +25,11 @@ sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' packag
 
 # 删除 'lean主题'
 rm -rf feeds/luci/themes/luci-theme-argon
-rm -rf feeds/luci/applications/luci-app-argon-config
-rm -rf package/lean/luci-theme-argon
-rm -rf feeds/kenzok/luci-theme-argon
-rm -rf feeds/kenzok/luci-app-argon-config
+rm -rf feeds/luci/themes/luci-theme-netgear
+rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/luci/themes/luci-theme-argon-mod
+rm -rf feeds/luci/themes/luci-theme-material
+rm -rf feeds/luci/themes/luci-app-argonne-config
 
 # 修改 luci-theme-argonne 为默认主题
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
@@ -44,6 +45,8 @@ git clone https://github.com/riverscn/openwrt-iptvhelper.git package/openwrt-ipt
 git clone https://github.com/sirpdboy/luci-app-advanced package/luci-app-advanced
 git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-control-weburl
 svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
+svn co https://github.com/wwz09/openwrt-packages/trunk/luci-theme-argonne package/luci-theme-argonne
+svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-argonne-config package/luci-app-argonne-config
 git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
 
 # weburl 文件加执行权限
