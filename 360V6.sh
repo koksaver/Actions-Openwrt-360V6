@@ -68,14 +68,14 @@ rm -rf package/feeds/kenzo/luci-app-amlogic
 
 # 使用原始最新版本
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-
+git clone https://github.com/siwind/luci-app-wolplus.git package/luci-app-wolplus
 # '应用过滤插件'
 git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
 # '管控插件'
 git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-control-weburl
 svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
-# git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
+git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
 
 # weburl 文件加执行权限
 chmod 7777 files/etc/init.d/weburl 
