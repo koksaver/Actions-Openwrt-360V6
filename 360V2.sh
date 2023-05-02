@@ -56,7 +56,8 @@ rm -rf feeds/kenzok/UnblockNeteaseMusic
 sed -i '/set luci.main.mediaurlbase=\/luci-static\/bootstrap/d' feeds/luci/themes/luci-theme-bootstrap/root/etc/uci-defaults/30_luci-theme-bootstrap
 sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci/Makefile
 sed -i 's/#5e72e4/#E7651A/g' package/feeds/kenzo/luci-app-argonne-config/root/etc/config/argonne
-# sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' feeds/luci/collections/luci-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' package/feeds/luci/luci-nginx/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-argonne/g' package/feeds/luci/luci-ssl-nginx/Makefile
 
 #添加额外非必须软件包
 
