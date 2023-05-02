@@ -24,6 +24,11 @@ sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_genera
 # 修正连接数
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
+# 复制DTS 
+# cp -rf $GITHUB_WORKSPACE/diy/360V6/ipq6018-v6.dts ./target/linux/ipq60xx/files/arch/arm64/boot/dts/qcom/ipq6018-v6.dts
+
+cp -rf $GITHUB_WORKSPACE/diy/360V6/ipq6018-v6.dts ./target/linux/ipq60xx/files-4.4/arch/arm64/boot/dts/qcom/qcom-ipq6018-qihoo-v6.dts
+
 # 发现并删除文件
 # find ./ -name luci-theme-argon | xargs rm -rf;
 # find ./ -name luci-app-argon-config | xargs rm -rf;
@@ -33,7 +38,7 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-argon-mod
 rm -rf feeds/luci/themes/luci-theme-material
 rm -rf feeds/luci/themes/luci-theme-netgear
-rm -rf feeds/luci/themes/luci-theme-bootstrap
+# rm -rf feeds/luci/themes/luci-theme-bootstrap
 rm -rf feeds/kenzok/luci-app-argon-config
 rm -rf feeds/kenzok/luci-theme-argon
 rm -rf feeds/kenzok/luci-theme-atmaterial_new
