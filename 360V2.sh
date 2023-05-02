@@ -28,21 +28,22 @@ rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/themes/luci-theme-argon-mod
 rm -rf feeds/luci/themes/luci-theme-material
 rm -rf feeds/luci/themes/luci-theme-netgear
-rm -rffeeds/kenzok/luci-app-argon-config
-rm -rffeeds/kenzok/luci-theme-argon
-rm -rffeeds/kenzok/luci-theme-atmaterial_new
-rm -rffeeds/kenzok/luci-theme-opentopd
-rm -rffeeds/kenzok/luci-theme-tomato
+rm -rf feeds/kenzok/luci-app-argon-config
+rm -rf feeds/kenzok/luci-theme-argon
+rm -rf feeds/kenzok/luci-theme-atmaterial_new
+rm -rf feeds/kenzok/luci-theme-opentopd
+rm -rf feeds/kenzok/luci-theme-tomato
 rm -rf feeds/luci/applications/luci-app-argon-config
 
 # 删除 '不用插件'
-rm -rffeeds/kenzok/luci-app-passwall
-rm -rffeeds/kenzok/luci-app-passwall2
-rm -rffeeds/kenzok/luci-app-amlogic
-rm -rffeeds/kenzok/luci-app-openclash
-rm -rffeeds/kenzok/luci-theme-tomato
-rm -rffeeds/kenzok/luci-app-unblockneteasemusic
-rm -rffeeds/kenzok/UnblockNeteaseMusic
+rm -rf feeds/small/luci-app-passwall
+rm -rf feeds/small/luci-app-passwall2
+rm -rf feeds/small/luci-app-ssr-plus
+rm -rf feeds/kenzok/luci-app-amlogic
+rm -rf feeds/kenzok/luci-app-openclash
+rm -rf feeds/kenzok/luci-theme-tomato
+rm -rf feeds/kenzok/luci-app-unblockneteasemusic
+rm -rf feeds/kenzok/UnblockNeteaseMusic
 
 
 # 修改 luci-theme-argonne 为默认主题
