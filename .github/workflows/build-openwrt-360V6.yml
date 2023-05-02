@@ -116,14 +116,8 @@ jobs:
       id: organize
       if: steps.compile.outputs.status == 'success'
       run: |
-        cp openwrt/.config build.config
-        mkdir -p Packages
-        mv -f openwrt/bin/packages/*/*/*.ipk Packages
-        mv -f openwrt/bin/targets/*/*/packages/*.ipk Packages
-        tar -zcvf Packages.tar.gz Packages
-        mv *.config *.tar.gz openwrt/bin/targets/*/*
         cd openwrt/bin/targets/*/*
-        rm -rf packages feeds.buildinfo sha256sums version.buildinfo
+        rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "::set-output name=status::success"
     - name: Upload firmware directory
