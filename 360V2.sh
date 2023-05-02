@@ -18,6 +18,9 @@
 
 # echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 
+# '修改默内核'
+# sed -i 's/PATCHVER:=5.4/PATCHVER:=5.10/g' target/linux/ipq40xx/Makefile         # ipq40xx，内核：5.4，内核为5.10
+
 # 修改默认 IP
 sed -i 's/192.168.1.1/192.168.10.1/g' package/base-files/files/bin/config_generate
 
@@ -54,7 +57,11 @@ rm -rf feeds/kenzok/luci-app-amlogic
 rm -rf feeds/kenzok/luci-app-openclash
 rm -rf feeds/kenzok/luci-theme-tomato
 rm -rf feeds/kenzok/luci-app-unblockneteasemusic
-rm -rf feeds/kenzok/UnblockNeteaseMusic
+rm -rf feeds/kenzok/luci-app-amlogic
+rm -rf feeds/kenzok/luci-app-dockerman
+rm -rf feeds/kenzok/luci-app-easymesh
+rm -rf feeds/small/sing-box
+
 
 
 # 修改 luci-theme-argonne 为默认主题
@@ -72,7 +79,7 @@ git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-c
 svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
 # svn co https://github.com/wwz09/openwrt-packages/trunk/luci-theme-argonne package/luci-theme-argonne
 # svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-argonne-config package/luci-app-argonne-config
-git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
+# git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
 
 # weburl 文件加执行权限
 chmod 7777 files/etc/init.d/weburl 
