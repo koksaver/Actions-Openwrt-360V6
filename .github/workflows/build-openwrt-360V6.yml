@@ -18,58 +18,59 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/wwz09/ipq6000
+  REPO_URL: https://github.com/sdf8057/ipq6000.git
   REPO_BRANCH: main
-  CONFIG_FILE: config/qihoo.config
   FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: config/qihoo.config
   DIY_P1_SH: qihoo.sh
-  DIY_SCRIPT: 360V6.sh
+  DIY_P2_SH: 360V6.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
+  UPLOAD_FIRMWARE: true
+  UPLOAD_COWTRANSFER: false
+  UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: true
-  FILE_NAME: Qihoo6000
   TZ: Asia/Shanghai
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
 
     steps:
     - name: Checkout
-      uses: actions/checkout@main
+      uses: actions/checkout@v3
 
     - name: Initialization environment
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        docker rmi $(docker images -q)
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /etc/mysql /usr/local/lib/android
-        sudo -E apt-get -qq purge azure-cli google* llvm* moby* mysql* php* powershell
-        sudo -E apt-get -qq update
-        sudo -E apt-get -qq install $(curl -fsSL is.gd/depends_ubuntu_2204)
-        sudo -E apt-get -qq autoremove --purge
-        sudo -E apt-get -qq clean
+        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
+        sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
         sudo timedatectl set-timezone "$TZ"
+        git config --global user.email "wwz5124@gmail.com"
+        git config --global user.name "wwz09"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
-        
+
     - name: Clone source code
       working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        cd openwrt
-        useVersionInfo=$(git show -s --date=short --format="Author: %an<br/>date: %cd<br/>commit: %s<br/>commit hash: %H")
-        echo "useVersionInfo=$useVersionInfo" >> $GITHUB_ENV
-        
+
+    - name: Cache
+      uses: stupidloud/cachewrtbuild@main
+      with:
+        ccache: 'true'
+        prefix: ${{ github.workspace }}/openwrt
+
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
-    
+
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
@@ -80,10 +81,17 @@ jobs:
       run: |
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        cat $EXTRA_CONFIG >> openwrt/.config
-        chmod +x $DIY_SCRIPT
+        chmod +x $DIY_P2_SH
         cd openwrt
-        $GITHUB_WORKSPACE/$DIY_SCRIPT
+        $GITHUB_WORKSPACE/$DIY_P2_SH
+
+    - name: SSH connection to Actions
+      uses: P3TERX/ssh2actions@v1.0.0
+      if: (github.event.inputs.ssh == 'true' && github.event.inputs.ssh  != 'false') || contains(github.event.action, 'ssh')
+      env:
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+
     - name: Download package
       id: package
       run: |
@@ -92,21 +100,24 @@ jobs:
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
+
     - name: Compile the firmware
       id: compile
       run: |
         cd openwrt
         echo -e "$(nproc) thread compile"
         make -j$(nproc) || make -j1 || make -j1 V=s
-        echo "::set-output name=status::success"
-        echo "DEVICE_NAME=_rockchip-armv8" >> $GITHUB_ENV
-        echo "DATE=$(date +"%Y-%m-%d %H:%M:%S")" >> $GITHUB_ENV
+        echo "status=success" >> $GITHUB_OUTPUT
+        grep '^CONFIG_TARGET.*DEVICE.*=y' .config | sed -r 's/.*DEVICE_(.*)=y/\1/' > DEVICE_NAME
+        [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
         echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+
     - name: Check space usage
+      if: (!cancelled())
       run: df -hT
 
     - name: Upload bin directory
-      uses: actions/upload-artifact@main
+      uses: actions/upload-artifact@v3
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -114,29 +125,70 @@ jobs:
 
     - name: Organize files
       id: organize
-      if: steps.compile.outputs.status == 'success'
+      if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
         cd openwrt/bin/targets/*/*
         rm -rf packages
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
-        echo "::set-output name=status::success"
+        echo "status=success" >> $GITHUB_OUTPUT
+
     - name: Upload firmware directory
-      uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_FIRMWARE == 'true'
+      uses: actions/upload-artifact@v3
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+        name: ipq6000${{ env.FILE_DATE }}
         path: ${{ env.FIRMWARE }}
 
+    - name: Upload firmware to cowtransfer
+      id: cowtransfer
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
+        echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
+        echo "url=$(cat cowtransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
+
+    - name: Upload firmware to WeTransfer
+      id: wetransfer
+      if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
+      run: |
+        curl -fsSL git.io/file-transfer | sh
+        ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
+        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
+        echo "url=$(cat wetransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
+
+    - name: Generate release tag
+      id: tag
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      run: |
+        echo "release_tag=ipq6000_$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
+        touch release.txt
+        echo "ipq6000 firmware" >> release.txt
+        [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
+        [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
+        echo "status=success" >> $GITHUB_OUTPUT
+
     - name: Upload firmware to release
-      uses: ncipollo/release-action@main
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_RELEASE == 'true'
+      uses: softprops/action-gh-release@v1
+      if: steps.tag.outputs.status == 'success' && !cancelled()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: R${{ env.DATE }} for ${{ env.FILE_NAME }}
-        artifacts: ${{ env.FIRMWARE }}/*
-        allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
-        token: ${{ secrets.GITHUB_TOKEN }}
-        body: |
-          **This is OpenWrt firmware for Qihoo6000**
-          * 这是 Qihoo6000 平台使用的 OpenWrt 固件
-          ${{ env.useVersionInfo }}
+        tag_name: ${{ steps.tag.outputs.release_tag }}
+        body_path: release.txt
+        files: ${{ env.FIRMWARE }}/*
+
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 3
+
+    - name: Remove old Releases
+      uses: dev-drprasad/delete-older-releases@v0.1.0
+      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
+      with:
+        keep_latest: 9
+        delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
