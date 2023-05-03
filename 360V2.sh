@@ -57,9 +57,9 @@ rm -rf feeds/kenzok/luci-app-amlogic
 rm -rf feeds/kenzok/luci-app-openclash
 rm -rf feeds/kenzok/luci-theme-tomato
 rm -rf feeds/kenzok/luci-app-unblockneteasemusic
-rm -rf feeds/kenzok/luci-app-amlogic
-rm -rf feeds/kenzok/luci-app-dockerman
-rm -rf feeds/kenzok/luci-app-easymesh
+rm -rf package/feeds/kenzo/luci-app-amlogic
+rm -rf package/feeds/kenzo/luci-app-dockerman
+rm -rf package/feeds/kenzo/luci-app-easymesh
 rm -rf feeds/small/sing-box
 
 
