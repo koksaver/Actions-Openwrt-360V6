@@ -20,12 +20,12 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/coolsnowwolf/openwrt-gl-ax1800
-  REPO_BRANCH: master
-  CONFIG_FILE: config/360V6.config
+  REPO_URL: https://github.com/wwz09/ipq6000
+  REPO_BRANCH: main
+  CONFIG_FILE: config/qihoo.config
   FEEDS_CONF: feeds.conf.default
-  DIY_P1_SH: diy-part1.sh
-  DIY_SCRIPT: 360V2.sh
+  DIY_P1_SH: qihoo.sh
+  DIY_SCRIPT: 360V6.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
