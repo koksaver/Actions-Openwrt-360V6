@@ -21,7 +21,7 @@ git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
 git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-control-weburl
 
-git clone https://github.com/lariboo/ddnsto.git package/ddnsto
+# git clone https://github.com/lariboo/ddnsto.git package/ddnsto
 git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
 #　svn co　https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
 git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
