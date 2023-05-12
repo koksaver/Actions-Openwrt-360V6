@@ -23,10 +23,19 @@ git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
-rm -rf package/qca/nss/qca-ssdk/Makefile
-rm -rf package/qca/nss/qca-ssdk/files/qca-ssdk
-rm -rf package/qca/nss/qca-nss-dp/Makefile
+rm -rf package/qca/nss/qca-nss-clients
+rm -rf package/qca/nss/qca-nss-crypto
+rm -rf package/qca/nss/qca-nss-dp
+rm -rf package/qca/nss/qca-nss-drv
+rm -rf package/qca/nss/qca-nss-ecm
+rm -rf package/qca/nss/qca-ssdk
+rm -rf package/qca/nss/qca-ssdk-shell
 
-cp -rf $GITHUB_WORKSPACE/patches/qca-ssdk/Makefile package/qca/nss/qca-ssdk/Makefile
-cp -rf $GITHUB_WORKSPACE/patches/qca-ssdk/files/qca-ssdk package/qca/nss/qca-ssdk/files/qca-ssdk
-cp -rf $GITHUB_WORKSPACE/patches/qca-nss-dp/Makefile package/qca/nss/qca-nss-dp/Makefile
+cp -rf $GITHUB_WORKSPACE/patches/qca-nss-clients package/qca/nss/qca-nss-clients
+cp -rf $GITHUB_WORKSPACE/patches/qca-nss-crypto package/qca/nss/qca-nss-crypto
+cp -rf $GITHUB_WORKSPACE/patches/qca-nss-dp package/qca/nss/qca-nss-dp
+cp -rf $GITHUB_WORKSPACE/patches/qca-nss-drv package/qca/nss/qca-nss-drv
+cp -rf $GITHUB_WORKSPACE/patches/qca-nss-ecm package/qca/nss/qca-nss-ecm
+cp -rf $GITHUB_WORKSPACE/patches/qca-ssdk package/qca/nss/qca-ssdk
+cp -rf $GITHUB_WORKSPACE/patches/qca-ssdk-shell package/qca/nss/qca-ssdk-shell
+
