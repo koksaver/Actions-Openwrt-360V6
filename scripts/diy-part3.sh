@@ -25,6 +25,8 @@ git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
 rm -rf package/qca/nss/qca-ssdk/Makefile
 rm -rf package/qca/nss/qca-ssdk/files/qca-ssdk
+rm -rf package/qca/nss/qca-nss-dp/Makefile
 
 cp -rf $GITHUB_WORKSPACE/patches/qca-ssdk/Makefile package/qca/nss/qca-ssdk/Makefile
 cp -rf $GITHUB_WORKSPACE/patches/qca-ssdk/files/qca-ssdk package/qca/nss/qca-ssdk/files/qca-ssdk
+cp -rf $GITHUB_WORKSPACE/patches/qca-nss-dp/Makefile package/qca/nss/qca-nss-dp/Makefile
