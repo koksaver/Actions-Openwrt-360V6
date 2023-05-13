@@ -23,6 +23,9 @@ git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
+# 修改默认IP
+# sed -i 's/192.168.1.1/192.168.124.1/g' package/base-files/files/bin/config_generate
+
 #　web登陆密码从password修改为空
 sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' package\addition\default-settings\files/99-default-settings
 
