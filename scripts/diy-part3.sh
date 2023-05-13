@@ -23,6 +23,12 @@ git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
+#　web登陆密码从password修改为空
+sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' package\addition\default-settings\files/99-default-settings
+
+#　固件版本号添加个人标识和日期
+sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package\addition\default-settings\files/99-default-settings
+
 rm -rf package/qca/nss/qca-nss-clients
 rm -rf package/qca/nss/qca-nss-crypto
 rm -rf package/qca/nss/qca-nss-dp
