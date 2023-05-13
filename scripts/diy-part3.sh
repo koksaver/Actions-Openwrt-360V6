@@ -29,6 +29,15 @@ sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.//g' package\addition\default-settin
 #　固件版本号添加个人标识和日期
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package\addition\default-settings\files/99-default-settings
 
+#　编译的固件文件名添加日期
+sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
+
+#　修改主机名
+sed -i "s/hostname='OpenWrt'/hostname='Qihoo V6'/g" package/base-files/files/bin/config_generate
+
+# 添加自动挂载磁盘脚本
+# mkdir -p files/etc/hotplug.d/block && wget -O files/etc/hotplug.d/block/30-usbmount https://raw.githubusercontent.com/fichenx/P3TERX_Actions-OpenWrt/main/files/etc/hotplug.d/block/30-usbmount && chmod 755 files/etc/hotplug.d/block/30-usbmount
+
 rm -rf package/qca/nss/qca-nss-clients
 rm -rf package/qca/nss/qca-nss-crypto
 rm -rf package/qca/nss/qca-nss-dp
