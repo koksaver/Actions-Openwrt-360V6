@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Qihooname: Build_Openwrt
+name: Qihoo
 
 on: 
   workflow_dispatch:
