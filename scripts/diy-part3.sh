@@ -49,6 +49,7 @@ rm -rf package/qca/nss/qca-nss-ecm
 rm -rf package/qca/nss/qca-ssdk
 rm -rf package/qca/nss/qca-ssdk-shell
 
+cp -rf $GITHUB_WORKSPACE/patches/feeds.conf.default ./feeds.conf.default
 cp -rf $GITHUB_WORKSPACE/patches/qca-nss-clients package/qca/nss/qca-nss-clients
 cp -rf $GITHUB_WORKSPACE/patches/qca-nss-crypto package/qca/nss/qca-nss-crypto
 cp -rf $GITHUB_WORKSPACE/patches/qca-nss-dp package/qca/nss/qca-nss-dp
