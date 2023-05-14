@@ -68,8 +68,7 @@ jobs:
       run: |
         git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
         cd openwrt
-        sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-        sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
+        git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
         
     - name: Update & Install feeds
       working-directory: ./openwrt
@@ -77,14 +76,13 @@ jobs:
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         ./scripts/feeds install -a
-        #rm -rf feeds/packages/lang/golang
-        #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang feeds/packages/lang/golang
+        
     - name: Configuration Customization - Build_Openwrt
       env:
         CONFIG_FILE: '360v6.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x ./scripts/qihoo.sh && ./scripts/qihoo.sh
+        chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
         
     - name: Download package
