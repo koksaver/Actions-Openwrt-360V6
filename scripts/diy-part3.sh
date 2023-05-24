@@ -48,6 +48,7 @@ rm -rf package/qca/nss/qca-nss-drv
 rm -rf package/qca/nss/qca-nss-ecm
 rm -rf package/qca/nss/qca-ssdk
 rm -rf package/qca/nss/qca-ssdk-shell
+rm -rf target/linux/ipq60xx/patches-4.4/998-modify-qcom-ipq6018-memory.patch
 
 cp -rf $GITHUB_WORKSPACE/patches/feeds.conf.default ./feeds.conf.default
 cp -rf $GITHUB_WORKSPACE/patches/qca-nss-clients package/qca/nss/qca-nss-clients
