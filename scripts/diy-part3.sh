@@ -27,7 +27,11 @@ git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 # sed -i 's/192.168.1.1/192.168.124.1/g' package/base-files/files/bin/config_generate
 
 #　web登陆密码从password修改为空
-sed -i 's/$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF//g' package/addition/default-settings/files/99-default-settings
+# sed -i 's/CYXluq4wUazHjmCDBCqXF//g' package/addition/default-settings/files/99-default-settings
+sed -i 's@.*CYXluq4wUazHjmCDBCqXF*@#&@g' package/addition/default-settings/files/99-default-settings
+
+#使用sed 在第四行后添加新字
+sed -i '/set wireless.default_radio${devidx}.encryption=psk2/a\set wireless.default_radio${devidx}.key=password' package/kernel/mac80211/files/lib/wifi/mac80211.sh
 
 #　固件版本号添加个人标识和日期
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package/addition/default-settings/files/99-default-settings
