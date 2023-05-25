@@ -27,3 +27,6 @@ sed -i 's/OpenWrt/Qihoo V6/g' openwrt/package/kernel/mac80211/files/lib/wifi/mac
 
 # 修改 wifi 地区
 sed -i 's/US/CN/g' openwrt/package/kernel/mac80211/files/lib/wifi/mac80211.sh
+
+
+rm -rf target/linux/ipq60xx/patches-4.4/998-modify-qcom-ipq6018-memory.patch
