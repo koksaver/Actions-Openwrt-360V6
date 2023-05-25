@@ -18,14 +18,14 @@ echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 
 #　添加新插件
 
-# git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
+git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
 git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
 # 修改默认IP
-# sed -i 's/192.168.1.1/192.168.124.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_generate
 
 #　web登陆密码从password修改为空
 # sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/addition/default-settings/files/99-default-settings
