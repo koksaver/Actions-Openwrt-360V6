@@ -18,7 +18,7 @@ echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 
 #　添加新插件
 
-git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
+# git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
 git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
