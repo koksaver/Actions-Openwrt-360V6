@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Qihoo
+name: Qihoo-tset
 
 on:
   repository_dispatch:
@@ -20,12 +20,12 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/felix-fly/openwrt-ax18.git
+  REPO_URL: https://github.com/wwz09/6108-360
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/qihoo.config
   DIY_P1_SH: ./scripts/diy-part1.sh
-  DIY_P2_SH: ./scripts/diy-part3.sh
+  DIY_P2_SH: ./scripts/qihoo-test.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
@@ -169,7 +169,7 @@ jobs:
       run: |
         echo "release_tag=ipq6000_$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
         touch release.txt
-        echo "ipq6000 Qihoo" >> release.txt
+        echo "ipq6000 Qihoo-test" >> release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
