@@ -15,6 +15,7 @@
 
 # Enable Cache
 echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
+echo 'src-git small8 https://github.com/kenzok8/small-package' >>feeds.conf.default
 
 #  删除
 rm -rf target/linux/ipq60xx/patches-4.4/998-modify-qcom-ipq6018-memory.patch
