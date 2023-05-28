@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/wwz09/ipq6000
+  REPO_URL: https://github.com/breeze303/ipq6000
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/IPQ6108.config
