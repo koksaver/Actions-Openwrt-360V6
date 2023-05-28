@@ -23,7 +23,7 @@ env:
   REPO_URL: https://github.com/breeze303/ipq6000
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ./config/IPQ6108.config
+  CONFIG_FILE: ./config/ipq6000.config
   DIY_P1_SH: ./scripts/diy-part1.sh
   DIY_P2_SH: ./scripts/IPQ6108.sh
   UPLOAD_BIN_DIR: false
