@@ -20,7 +20,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/wwz09/6108-360
+  REPO_URL: https://github.com/wwz09/IPQ360V6
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/qihoo.config
