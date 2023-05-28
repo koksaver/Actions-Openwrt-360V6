@@ -18,13 +18,13 @@ echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 # echo 'src-git small8 https://github.com/kenzok8/small-package' >>feeds.conf.default
 
 #  删除
-# rm -rf target/linux/ipq60xx/patches-4.4/998-modify-qcom-ipq6018-memory.patch
+rm -rf target/linux/ipq60xx/patches-4.4/998-modify-qcom-ipq6018-memory.patch
 
 #　添加新插件
 
 # git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
-# git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
+git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
