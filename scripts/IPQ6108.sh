@@ -25,8 +25,12 @@ rm -rf target/linux/ipq60xx/patches-4.4/998-modify-qcom-ipq6018-memory.patch
 # git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
 # git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
-
-# git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+git clone https://github.com/jerrykuku/lua-maxminddb.git package/lua-maxminddb
+git clone https://github.com/gdck/luci-app-control-weburl.git package/luci-app-control-weburl
+svn co https://github.com/wwz09/openwrt-packages/trunk/luci-app-control-webrestriction package/luci-app-control-webrestriction
+git clone https://github.com/ywt114/luci-app-control-timewol.git package/luci-app-control-timewol
 
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
