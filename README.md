@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat" alt="">
   </a><a href="https://github.com/sdf8057/cloudbuild/issues/new">
     <img src="https://img.shields.io/badge/Issues-welcome-brightgreen.svg?style=flat">
-  </a><a href="https://github.com/sdf8057/cloudbuild/releases">
+  </a><a href="https://github.com/wwz09/Actions-Openwrt-IMM/releases">
     <img src="https://img.shields.io/github/release/sdf8057/cloudbuild.svg?style=flat">
   </a><a href="hhttps://github.com/sdf8057/cloudbuild/releases">
     <img src="https://img.shields.io/github/downloads/sdf8057/cloudbuild/total?style=flat&?">
