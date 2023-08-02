@@ -161,7 +161,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "? immortalwrt源码版本，5.4内核\n? 第一次无法开机请按一下重置按钮\n? 日常更新" >> release.txt
+        echo -e "? QCA IPQ60xx源码版本，4.4内核\n? 无线可用，USB无法使用\n? 日常更新" >> release.txt
         echo "release_tag=$(date +"%Y.%m.%d-21.02")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
