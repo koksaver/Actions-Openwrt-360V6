@@ -77,7 +77,7 @@ jobs:
         ccache: 'true'
         mixkey: 'openwrt21'
         prefix: ${{ github.workspace }}/openwrt
-	
+
     - name: 更新 & 安装 feeds & 执行脚本
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
