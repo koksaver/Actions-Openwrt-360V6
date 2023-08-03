@@ -20,9 +20,9 @@ echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 
 # git clone https://github.com/destan19/OpenAppFilter.git package/luci-app-oaf
 
-# git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
+git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 
-# git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
+git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
 #　删除
 rm -rf package/feeds/luci/luci-app-ssr-plus
