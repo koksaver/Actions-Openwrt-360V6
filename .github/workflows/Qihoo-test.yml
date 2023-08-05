@@ -19,7 +19,7 @@ on:
       ssh:
         description: 'SSH connection to Actions'
         required: false
-        默认: 'false'
+        default: 'false'
 
 env:
   REPO_URL: https://github.com/wwz09/IPQ6K-test
