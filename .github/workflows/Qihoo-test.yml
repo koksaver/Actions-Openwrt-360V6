@@ -37,7 +37,7 @@ env:
   DIY_P1_SH: ./scripts/diy-part1.sh
   DIY_P2_SH: ./scripts/qihoo-v6.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: true
+  UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
@@ -141,8 +141,7 @@ jobs:
       id: organize
       if: steps.compile.outputs.status == 'success'
       run: |
-        cd openwrt/bin/targets/*/*
-        rm -rf *.buildinfo 
+        cd openwrt/bin/targets/*/* 
         rm -rf *.json 
         rm -rf *.manifest 
         rm -rf packages
