@@ -191,7 +191,7 @@ jobs:
       with:
         tag_name: ${{ steps.tag.outputs.release_tag }}
         body_path: release.txt
-        文件: ${{ env.FIRMWARE }}/*
+        files: ${{ env.FIRMWARE }}/*
 
     - name: 删除旧发布的固件
       uses: dev-drprasad/delete-older-releases@v0.2.1
