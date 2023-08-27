@@ -23,7 +23,7 @@ sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generat
 
 
 # themes添加（svn co 命令意思：指定版本如https://github）
-git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
+# git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package/luci-theme-infinityfreedom
 # git clone https://github.com/Leo-Jo-My/luci-theme-opentomcat.git package/luci-theme-opentomcat
 # git clone https://github.com/openwrt-develop/luci-theme-atmaterial.git package/luci-theme-atmaterial
 # git clone https://github.com/sirpdboy/luci-theme-opentopd.git package/luci-theme-opentopd
@@ -37,6 +37,7 @@ git clone https://github.com/xiaoqingfengATGH/luci-theme-infinityfreedom package
 # 使用原始最新版本，而不是上游package里面的
 rm -rf ./feeds/luci/applications/luci-app-openclash
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
 # rm -rf ./feeds/packages/smartdns
 # git clone https://github.com/pymumu/smartdns.git package/smartdns
 # rm -rf ./feeds/luci/applications/luci-app-smartdns
