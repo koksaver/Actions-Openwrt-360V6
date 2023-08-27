@@ -39,6 +39,8 @@ rm -rf ./feeds/luci/applications/luci-app-openclash
 rm -rf ./package/feeds/packages/bmx7-dnsupdate
 rm -rf ./package/feeds/luci/luci-app-ahcp
 rm -rf ./package/feeds/luci/luci-app-olsr
+rm -rf ./package/IPQ6108/luci-app-easymesh
+rm -rf ./package/feeds/luci/luci-app-olsr-viz
 rm -rf ./package/feeds/packages/prometheus-node-exporter-lua
 git clone --depth=1 https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/wwz09/IPQ6108.git package/IPQ6108
