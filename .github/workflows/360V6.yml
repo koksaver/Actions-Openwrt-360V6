@@ -84,9 +84,6 @@ jobs:
         chmod +x $DIY_P1_SH
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
-        
-    - name: Update  clean
-      run: cd openwrt && ./scripts/feeds clean 
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
@@ -144,7 +141,8 @@ jobs:
       id: organize
       if: steps.compile.outputs.status == 'success'
       run: |
-        cd openwrt/bin/targets/*/* 
+        cd openwrt/bin/targets/*/*
+        rm -rf *.buildinfo 
         rm -rf *.json 
         rm -rf *.manifest 
         rm -rf packages
