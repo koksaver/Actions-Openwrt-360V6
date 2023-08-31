@@ -26,7 +26,8 @@ echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 
 #　删除插件
 rm -rf package/feeds/luci/luci-app-ssr-plus
-
+rm -rf package/IPQ6108/UnblockNeteaseMusic-Go
+rm -rf package/IPQ6108/firewall
 
 # 修改默认IP
 sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_generate
