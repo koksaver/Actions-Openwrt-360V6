@@ -24,7 +24,6 @@ on:
 env:
   REPO_URL: https://github.com/sdf8057/ipq6000
   REPO_BRANCH: main
-  REPO_BRANCH: main
   BUILD_DEPENDS:  "ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
                    bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
                    git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
