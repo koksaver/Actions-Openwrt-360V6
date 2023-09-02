@@ -31,7 +31,7 @@ env:
                    mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
                    rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev"
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ./config/qihoo.config
+  CONFIG_FILE: ./config/360v6-wifi.config
   DIY_P1_SH: ./scripts/qihoo/diy-part1.sh
   DIY_P2_SH: ./scripts/qihoo/qihoo.sh
   UPLOAD_BIN_DIR: false
