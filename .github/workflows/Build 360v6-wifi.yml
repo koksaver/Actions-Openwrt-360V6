@@ -35,7 +35,7 @@ env:
   DIY_P1_SH: ./scripts/qihoo/diy-part1.sh
   DIY_P2_SH: ./scripts/qihoo/qihoo.sh
   UPLOAD_BIN_DIR: false
-  UPLOAD_FIRMWARE: false
+  UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
 
