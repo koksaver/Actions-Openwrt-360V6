@@ -32,8 +32,8 @@ env:
                    rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev"
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360v6-wifi.config
-  DIY_P1_SH: ./scripts/qihoo/diy-part1.sh
-  DIY_P2_SH: ./scripts/qihoo/qihoo.sh
+  DIY_P1_SH: ./scripts/360v6/diy-part1.sh
+  DIY_P2_SH: ./scripts/360v6/diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
