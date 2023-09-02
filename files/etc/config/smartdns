@@ -19,12 +19,12 @@ config smartdns
 	option seconddns_no_speed_check '1'
 	option dualstack_ip_selection '1'
 	option port '1314'
-	option redirect 'dnsmasq-upstream'
 	option serve_expired '0'
 	option force_aaaa_soa '0'
-	list old_redirect 'dnsmasq-upstream'
-	list old_port '1314'
-	list old_enabled '0'
+	option auto_set_dnsmasq '1'
+	option old_port '1314'
+	option old_enabled '0'
+	option old_auto_set_dnsmasq '1'
 
 config server
 	option enabled '1'
@@ -113,4 +113,6 @@ config server
 	option port '53'
 	option type 'tcp'
 	option blacklist_ip '0'
+
+config domain-rule
 
