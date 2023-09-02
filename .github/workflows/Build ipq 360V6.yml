@@ -6,11 +6,11 @@
 
 name: Build ipq 360V6
 
+permissions: write-all
+#开启写权限，防止无法上传到release
+
 on:
-  schedule:
-    - cron:  '30 16 * * 5'
   repository_dispatch:
-    types: [Source_Code_Update_sdf8057, Package_Luci_Update]
   workflow_dispatch:
     inputs:
       ssh:
