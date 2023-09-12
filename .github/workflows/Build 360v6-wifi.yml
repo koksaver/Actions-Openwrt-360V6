@@ -22,7 +22,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/8688Add/ipq6000.git
+  REPO_URL: https://github.com/wwz09/360v6-wifi.git
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360v6-wifi.config
