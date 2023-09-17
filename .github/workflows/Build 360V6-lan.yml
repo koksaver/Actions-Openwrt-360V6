@@ -22,7 +22,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/wwz09/ZN-M2-OPENWRT-WIFI
+  REPO_URL: https://github.com/wwz09/M2-wifi
   REPO_BRANCH: wifi
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/qihoo.config
