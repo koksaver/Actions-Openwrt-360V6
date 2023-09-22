@@ -25,7 +25,7 @@ echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
 #　删除
-# rm -rf package/feeds/luci/luci-app-ssr-plus
+rm -rf package/feeds/luci/luci-app-ssr-plus
 
 # 修改默认IP
 sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
