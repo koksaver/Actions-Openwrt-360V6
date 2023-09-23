@@ -81,6 +81,7 @@ jobs:
         [ -e files ] && mv files openwrt/files
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
+        sudo chomd -R 7777 openwrt
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P2_SH
 
