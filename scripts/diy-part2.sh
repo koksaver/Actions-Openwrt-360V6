@@ -45,7 +45,7 @@ sed -i 's/"重启"/"系统重启"/g' `grep "重启" -rl ./`
 sed -i 's/"服务"/"应用服务"/g' `grep "服务" -rl ./`
 sed -i 's/"CPU 性能优化调节"/"CPU 设置"/g' `grep "CPU 性能优化调节" -rl ./`
 sed -i 's/"网络"/"网络设置"/g' `grep "网络" -rl ./`
-sed -i 's/"VPN"/"VPN设置"/g' `grep "VP" -rl ./`
+# sed -i 's/"VPN"/"VPN设置"/g' `grep "VP" -rl ./`
 
 # 修改默认IP
 sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_generate
@@ -57,7 +57,7 @@ sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_genera
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package/addition/default-settings/files/99-default-settings
 
 #　编译的固件文件名添加日期
-sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC-8 date "+%Y%m%d%H:%M:%S")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
+sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
 #　修改主机名
 sed -i "s/hostname='OpenWrt'/hostname='QihooV6'/g" package/base-files/files/bin/config_generate
