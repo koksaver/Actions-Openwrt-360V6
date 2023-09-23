@@ -57,7 +57,7 @@ sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_genera
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package/addition/default-settings/files/99-default-settings
 
 #　编译的固件文件名添加日期
-sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC-8 date "+%Y%m%d" "%H:%M:%S")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
+sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC-8 date "+%Y%m%d%H:%M:%S")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
 #　修改主机名
 sed -i "s/hostname='OpenWrt'/hostname='QihooV6'/g" package/base-files/files/bin/config_generate
