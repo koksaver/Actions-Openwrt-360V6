@@ -34,7 +34,7 @@ rm -rf package/feeds/luci/luci-app-ssr-plus
 # 修改插件名字
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 # sed -i 's/"Argonne 主题设置"/"主题设置"/g' `grep "Argonne 主题设置" -rl ./`
-sed -i 's/"解除网易云音乐播放限制"/"网易云音乐"/g' `grep "解除网易云音乐播放限制" -rl ./`
+sed -i 's/"解锁网易云灰色歌曲"/"音乐解锁"/g' `grep "解锁网易云灰色歌曲" -rl ./`
 sed -i 's/"状态"/"系统状态"/g' `grep "状态" -rl ./`
 sed -i 's/"系统"/"系统设置"/g' `grep "系统" -rl ./`
 sed -i 's/"Hello World"/"世界你好"/g' `grep "Hello World" -rl ./`
@@ -45,7 +45,7 @@ sed -i 's/"重启"/"系统重启"/g' `grep "重启" -rl ./`
 sed -i 's/"服务"/"应用服务"/g' `grep "服务" -rl ./`
 sed -i 's/"CPU 性能优化调节"/"CPU 设置"/g' `grep "CPU 性能优化调节" -rl ./`
 sed -i 's/"网络"/"网络设置"/g' `grep "网络" -rl ./`
-# sed -i 's/"VPN"/"VPN设置"/g' `grep "VP" -rl ./`
+sed -i 's/"MWAN3 分流助手"/"分流助手"/g' `grep "MWAN3 分流助手" -rl ./`
 
 # 修改默认IP
 sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_generate
