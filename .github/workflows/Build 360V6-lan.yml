@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/wwz09/M2-wifi
-  REPO_BRANCH: wifi
+  REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/qihoo.config
   DIY_P1_SH: ./scripts/qihoo/diy-part1.sh
