@@ -70,14 +70,10 @@ jobs:
     - name: clean feeds
       run: |
         cd openwrt 
-        chmod -R 7777 ./scripts/feeds
+        chmod -R 7777 ./scripts
         ./scripts/feeds clean
-
-    - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
-
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
 
     - name: 导入补丁和配置 & 下载文件
       run: |
