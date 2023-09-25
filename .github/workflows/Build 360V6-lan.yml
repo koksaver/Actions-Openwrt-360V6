@@ -69,8 +69,8 @@ jobs:
 
     - name: clean feeds
       run: |
-        cd openwrt 
-        chmod -R 7777 ./scripts
+        chmod -R 7777 openwrt
+        cd openwrt
         ./scripts/feeds clean
         ./scripts/feeds update -a
         ./scripts/feeds install -a
