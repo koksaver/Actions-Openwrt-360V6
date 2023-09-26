@@ -37,7 +37,7 @@ sed -i 's/"解锁网易云灰色歌曲"/"音乐解锁"/g' `grep "解锁网易云
 sed -i 's/"状态"/"系统状态"/g' `grep "状态" -rl ./`
 sed -i 's/"接口"/"网络接口"/g' `grep "接口" -rl ./`
 sed -i 's/"SQM QoS"/"队列管理"/g' `grep "SQM QoS" -rl ./`
-sed -i 's/"Turbo ACC 网络加速设置"/"网络加速设置"/g' `grep "Turbo ACC 网络加速设置" -rl ./`
+sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `grep "Turbo ACC 网络加速" -rl ./`
 sed -i 's/"TTYD 终端"/"超级终端"/g' `grep "TTYD 终端" -rl ./`
 sed -i 's/"系统"/"系统设置"/g' `grep "系统" -rl ./`
 sed -i 's/"Hello World"/"世界你好"/g' `grep "Hello World" -rl ./`
