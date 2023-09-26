@@ -37,7 +37,8 @@ sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 # sed -i 's/"Argonne 主题设置"/"主题设置"/g' `grep "Argonne 主题设置" -rl ./`
 sed -i 's/"解锁网易云灰色歌曲"/"音乐解锁"/g' `grep "解锁网易云灰色歌曲" -rl ./`
 sed -i 's/"状态"/"系统状态"/g' `grep "状态" -rl ./`
-sed -i 's/"接口"/"网络接口"/g' `grep "接口" -rl ./`
+sed -i 's/"接口"/"有线设置"/g' `grep "接口" -rl ./`
+sed -i 's/"无线"/"无线设置"/g' `grep "无线" -rl ./`
 sed -i 's/"SQM QoS"/"队列管理"/g' `grep "SQM QoS" -rl ./`
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `grep "Turbo ACC 网络加速" -rl ./`
 sed -i 's/"TTYD 终端"/"超级终端"/g' `grep "TTYD 终端" -rl ./`
