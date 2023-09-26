@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: 360V6-tset
+name: 360V6-test
 permissions: write-all
 #开启写权限，防止无法上传到release
 
@@ -25,9 +25,9 @@ env:
   REPO_URL: https://github.com/wwz09/360v6-wifi
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ./config/360V6-tset.config
-  DIY_P1_SH: ./scripts/360V6-tset/diy-part1.sh
-  DIY_P2_SH: ./scripts/360V6-tset/diy-part2.sh
+  CONFIG_FILE: ./config/360V6_tset.config
+  DIY_P1_SH: ./scripts/test/diy-part1.sh
+  DIY_P2_SH: ./scripts/test/diy-part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
