@@ -27,7 +27,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360V6_tset.config
   DIY_P1_SH: ./scripts/test/diy-part1.sh
-  DIY_P2_SH: ./scripts/test/diy-part2.sh
+  DIY_P2_SH: ./scripts/test/diy-chun.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: false
   UPLOAD_RELEASE: true
