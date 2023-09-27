@@ -67,16 +67,18 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$DIY_P1_SH
 
-    - name: clean feeds
-      run: cd openwrt && ./scripts/feeds clean
+    - name: 更新feeds
+      run: |
+        cd openwrt
+        ./scripts/feeds update -a
+        ./scripts/feeds install -a
+        ./scripts/feeds install -a
 
-    - name: Update feeds
-      run: cd openwrt && ./scripts/feeds update -a
+    - name: 导入补丁
+      run: |
+         [ -e files ] && mv files openwrt/files
 
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
-
-    - name: 导入补丁和配置 & 下载文件
+    - name: 导入配置 & 下载文件
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_P2_SH
