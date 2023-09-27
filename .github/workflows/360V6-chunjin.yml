@@ -74,9 +74,9 @@ jobs:
         ./scripts/feeds install -a
         ./scripts/feeds install -a
 
-    - name: 导入补丁
-      run: |
-         [ -e files ] && mv files openwrt/files
+    #- name: 导入补丁
+      #run: |
+         #[ -e files ] && mv files openwrt/files
 
     - name: 导入配置 & 下载文件
       run: |
