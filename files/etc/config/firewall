@@ -136,11 +136,6 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
-config include 'zerotier'
-	option type 'script'
-	option path '/etc/zerotier.reload'
-	option reload '1'
-
 config include 'qcanssecm'
 	option type 'script'
 	option path '/etc/firewall.d/qca-nss-ecm'

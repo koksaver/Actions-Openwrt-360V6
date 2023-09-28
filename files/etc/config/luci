@@ -2,7 +2,7 @@
 config core 'main'
 	option lang 'zh_cn'
 	option resourcebase '/luci-static/resources'
-	option mediaurlbase '/luci-static/design'
+	option mediaurlbase '/luci-static/ifit'
 
 config extern 'flash_keep'
 	option uci '/etc/config/'
@@ -26,6 +26,7 @@ config internal 'ccache'
 config internal 'themes'
 	option Bootstrap '/luci-static/bootstrap'
 	option Design '/luci-static/design'
+	option ifit '/luci-static/ifit'
 
 config internal 'diag'
 	option dns 'openwrt.org'

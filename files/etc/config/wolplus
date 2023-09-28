@@ -1,0 +1,6 @@
+
+config macclient 'b34efe349e0949948d4c2b4d143def88'
+	option name 'YM'
+	option macaddr '2C:56:DC:79:2B:1B'
+	option maceth 'br-lan'
+
