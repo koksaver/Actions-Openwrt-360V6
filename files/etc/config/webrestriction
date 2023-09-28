@@ -1,0 +1,5 @@
+
+config basic
+	option limit_type 'whitelist'
+	option enable '0'
+
