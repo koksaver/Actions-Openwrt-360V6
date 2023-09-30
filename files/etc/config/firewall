@@ -136,10 +136,6 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
-config include 'zerotier'
-	option type 'script'
-	option path '/etc/zerotier.reload'
-	option reload '1'
 
 config include 'qcanssecm'
 	option type 'script'
@@ -159,18 +155,10 @@ config rule 'adblock'
 	option proto 'tcp'
 	option dest_port '8118'
 
-config include 'openclash'
-	option type 'script'
-	option path '/var/etc/openclash.include'
-	option reload '1'
-
 config include 'unblockmusic'
 	option type 'script'
 	option path '/var/etc/unblockmusic.include'
 	option reload '1'
 
-config include 'vssr'
-	option type 'script'
-	option path '/var/etc/vssr.include'
-	option reload '1'
+
 
