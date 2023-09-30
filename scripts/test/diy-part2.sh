@@ -28,7 +28,7 @@ sed -i 's/Portable/Qihoo 360V6/g' package/addition/default-settings/files/99-def
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
 #　删除
-rm -rf package/feeds/luci/luci-app-ssr-plus
+# rm -rf package/feeds/luci/luci-app-ssr-plus
 
 # 修改插件名字
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
@@ -36,7 +36,6 @@ sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 sed -i 's/"解锁网易云灰色歌曲"/"音乐解锁"/g' `grep "解锁网易云灰色歌曲" -rl ./`
 sed -i 's/"状态"/"系统状态"/g' `grep "状态" -rl ./`
 sed -i 's/"接口"/"有线设置"/g' `grep "接口" -rl ./`
-# sed -i 's/"iStore"/"软件中心"/g' `grep "iStore" -rl ./`
 sed -i 's/"ShadowSocksR Plus+"/"你好世界"/g' `grep "ShadowSocksR Plus+" -rl ./`
 sed -i 's/"无线"/"无线设置"/g' `grep "无线" -rl ./`
 sed -i 's/"SQM QoS"/"队列管理"/g' `grep "SQM QoS" -rl ./`
