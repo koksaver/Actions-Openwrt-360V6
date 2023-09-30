@@ -8,7 +8,7 @@ config global
 	option anon_mount '1'
 
 config mount
-	option target '/mnt/sda5'
 	option enabled '1'
 	option device '/dev/sda5'
+	option target '/mnt/sda5'
 

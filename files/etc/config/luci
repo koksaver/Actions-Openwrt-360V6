@@ -2,7 +2,7 @@
 config core 'main'
 	option lang 'zh_cn'
 	option resourcebase '/luci-static/resources'
-	option mediaurlbase '/luci-static/ifit'
+	option mediaurlbase '/luci-static/design'
 
 config extern 'flash_keep'
 	option uci '/etc/config/'

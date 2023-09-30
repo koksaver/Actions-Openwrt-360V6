@@ -22,11 +22,16 @@ config uhttpd 'main'
 
 config cert 'defaults'
 	option days '730'
-	option key_type 'rsa'
+	option key_type 'ec'
 	option bits '2048'
 	option ec_curve 'P-256'
 	option country 'ZZ'
 	option state 'Somewhere'
 	option location 'Unknown'
 	option commonname 'OpenWrt'
+
+config uhttpd 'web'
+	list listen_http '0.0.0.0:81'
+	option home '/mnt/sda1/web'
+	option cgi_prefix '/cgi-bin'
 
