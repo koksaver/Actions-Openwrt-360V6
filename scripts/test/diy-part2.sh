@@ -36,7 +36,7 @@ sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 sed -i 's/"解锁网易云灰色歌曲"/"音乐解锁"/g' `grep "解锁网易云灰色歌曲" -rl ./`
 sed -i 's/"状态"/"系统状态"/g' `grep "状态" -rl ./`
 sed -i 's/"接口"/"有线设置"/g' `grep "接口" -rl ./`
-sed -i 's/"iStore"/"软件中心"/g' `grep "iStore" -rl ./`
+# sed -i 's/"iStore"/"软件中心"/g' `grep "iStore" -rl ./`
 sed -i 's/"ShadowSocksR Plus+"/"你好世界"/g' `grep "ShadowSocksR Plus+" -rl ./`
 sed -i 's/"无线"/"无线设置"/g' `grep "无线" -rl ./`
 sed -i 's/"SQM QoS"/"队列管理"/g' `grep "SQM QoS" -rl ./`
@@ -63,7 +63,7 @@ sed -i 's/192.168.10.1/192.168.2.1/g' package/base-files/files/bin/config_genera
 sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package/addition/default-settings/files/99-default-settings
 
 #　编译的固件文件名添加日期
-sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6TSET-$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
+sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6tset-$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
 #　修改主机名
 # sed -i "s/hostname='OpenWrt'/hostname='QihooV6'/g" package/base-files/files/bin/config_generate
