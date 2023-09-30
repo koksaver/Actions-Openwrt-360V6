@@ -27,7 +27,7 @@ env:
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360V6_ssr.config
   DIY_P1_SH: ./scripts/360V6/diy-part1.sh
-  DIY_P2_SH: ./scripts/360V6/360V6-pass.sh
+  DIY_P2_SH: ./scripts/360V6/360V6-ssr.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
