@@ -26,6 +26,7 @@ config internal 'ccache'
 config internal 'themes'
 	option Bootstrap '/luci-static/bootstrap'
 	option Design '/luci-static/design'
+	option Opentopd '/luci-static/opentopd'
 	option ifit '/luci-static/ifit'
 
 config internal 'diag'
