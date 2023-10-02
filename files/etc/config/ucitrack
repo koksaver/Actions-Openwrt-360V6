@@ -1,0 +1,124 @@
+
+config network
+	option init 'network'
+	list affects 'dhcp'
+	list affects 'radvd'
+
+config wireless
+	list affects 'network'
+
+config firewall
+	option init 'firewall'
+	list affects 'luci-splash'
+	list affects 'qos'
+	list affects 'miniupnpd'
+	list affects 'sqm'
+
+config olsr
+	option init 'olsrd'
+
+config dhcp
+	option init 'dnsmasq'
+	list affects 'odhcpd'
+
+config odhcpd
+	option init 'odhcpd'
+
+config dropbear
+	option init 'dropbear'
+
+config httpd
+	option init 'httpd'
+
+config fstab
+	option init 'fstab'
+
+config qos
+	option init 'qos'
+
+config system
+	option init 'led'
+	list affects 'luci_statistics'
+	list affects 'dhcp'
+
+config cron
+	option init 'cron'
+
+config luci_splash
+	option init 'luci_splash'
+
+config upnpd
+	option init 'miniupnpd'
+
+config ntpclient
+	option init 'ntpclient'
+
+config samba
+	option init 'samba'
+
+config tinyproxy
+	option init 'tinyproxy'
+
+config cpufreq
+	option init 'cpufreq'
+
+config nlbwmon
+	option init 'nlbwmon'
+
+config p910nd
+	option init 'p910nd'
+
+config zerotier
+	option init 'zerotier'
+
+config sqm
+	option init 'sqm'
+
+config smartdns
+	option init 'smartdns'
+
+config mwan3
+	option exec '/etc/init.d/mwan3 reload'
+
+config adbyby
+	option init 'adbyby'
+
+config timewol
+	option init 'timewol'
+
+config webrestriction
+	option init 'webrestriction'
+
+config weburl
+	option init 'weburl'
+
+config vlmcsd
+	option init 'kms'
+
+config arpbind
+	option init 'arpbind'
+
+config autoreboot
+	option init 'autoreboot'
+
+config openclash
+	option init 'openclash'
+
+config serverchan
+	option init 'serverchan'
+
+config unblockmusic
+	option init 'unblockmusic'
+
+config usb_printer
+	option init 'usb_printer'
+
+config vssr
+	option init 'vssr'
+
+config mwan3helper
+	option init 'mwan3helper'
+
+config turboacc
+	option init 'turboacc'
+
