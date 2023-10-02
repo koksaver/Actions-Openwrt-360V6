@@ -1,6 +1,0 @@
-
-config macclient '1977097aaaf84af09176eaac028ab95f'
-	option name 'YT'
-	option macaddr '2C:56:DC:79:2B:1B'
-	option maceth 'br-lan'
-
