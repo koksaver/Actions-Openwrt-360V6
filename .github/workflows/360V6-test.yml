@@ -72,10 +72,7 @@ jobs:
       run: cd openwrt && ./scripts/feeds clean
 
     - name: Update feeds
-      run: cd openwrt
-           ./scripts/feeds update -a
-           ./scripts/feeds install -a
-           ./scripts/feeds install -a
+      run: cd openwrt && ./scripts/feeds update -a && ./scripts/feeds install -a && ./scripts/feeds install -a
            
     #- name: 导入补丁
       #run: |
