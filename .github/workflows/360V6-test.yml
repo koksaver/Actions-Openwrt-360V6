@@ -22,7 +22,7 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/wwz09/360v6-wifi
+  REPO_URL: https://github.com/wwz09/qihoo-v6
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360V6_tset.config
