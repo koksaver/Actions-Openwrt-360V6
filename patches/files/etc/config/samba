@@ -8,7 +8,7 @@ config samba
 
 config sambashare
 	option browseable 'yes'
-	option name '网络共享'
+	option name 'sda1'
 	option path '/mnt/sda1'
 	option users 'root'
 	option read_only 'no'
