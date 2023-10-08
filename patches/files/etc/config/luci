@@ -26,7 +26,6 @@ config internal 'ccache'
 config internal 'themes'
 	option Bootstrap '/luci-static/bootstrap'
 	option Design '/luci-static/design'
-        option Design '/luci-static/ifit'
 
 config internal 'diag'
 	option dns 'openwrt.org'

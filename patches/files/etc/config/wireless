@@ -14,7 +14,7 @@ config wifi-iface 'default_radio0'
 	option mode 'ap'
 	option ssid 'openwrt-5G'
 	option encryption 'psk2'
-	option key '12345678,'
+	option key '12345678'
 
 config wifi-device 'radio1'
 	option type 'mac80211'
