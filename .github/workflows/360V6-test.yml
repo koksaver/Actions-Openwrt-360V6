@@ -25,7 +25,7 @@ env:
   REPO_URL: https://github.com/wwz09/v6
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: ./config/360V6_clash.config
+  CONFIG_FILE: ./config/360V6_chun.config
   DIY_P1_SH: ./scripts/360V6/diy-part1.sh
   DIY_P2_SH: ./scripts/360V6/360V6-tset.sh
   UPLOAD_BIN_DIR: false
