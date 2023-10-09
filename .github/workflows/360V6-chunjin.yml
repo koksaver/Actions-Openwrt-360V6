@@ -26,8 +26,8 @@ env:
   REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360V6_clash.config
-  DIY_P1_SH: ./scripts/test/diy-part1.sh
-  DIY_P2_SH: ./scripts/test/diy-chun.sh
+  DIY_P1_SH: ./scripts/360V6/diy-part1.sh
+  DIY_P2_SH: ./scripts/360V6/360V6-clash.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: true
