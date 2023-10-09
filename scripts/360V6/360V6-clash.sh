@@ -31,7 +31,7 @@ sed -i 's/Portable/360V6/g' package/addition/default-settings/files/99-default-s
 
 rm -rf package/feeds/luci/luci-app-ssr-plus
 
-# 修改插件名字
+
 # 修改插件名字
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
 # sed -i 's/"Argonne 主题设置"/"主题设置"/g' `grep "Argonne 主题设置" -rl ./`

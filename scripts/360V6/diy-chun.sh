@@ -27,10 +27,10 @@ sed -i 's/Portable/Qihoo 360V6/g' package/addition/default-settings/files/99-def
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
-cp -rf $GITHUB_WORKSPACE/patches/files ./files
+#删除不用插件
 
-#　删除
-# rm -rf package/feeds/luci/luci-app-ssr-plus
+rm -rf package/feeds/luci/luci-app-ssr-plus
+
 
 # 修改插件名字
 sed -i 's/"挂载点"/"磁盘挂载"/g' `grep "挂载点" -rl ./`
@@ -43,7 +43,7 @@ sed -i 's/"SQM QoS"/"队列管理"/g' `grep "SQM QoS" -rl ./`
 sed -i 's/"Turbo ACC 网络加速"/"网络加速"/g' `grep "Turbo ACC 网络加速" -rl ./`
 sed -i 's/"TTYD 终端"/"超级终端"/g' `grep "TTYD 终端" -rl ./`
 sed -i 's/"系统"/"系统设置"/g' `grep "系统" -rl ./`
-# sed -i 's/"Hello World"/"世界你好"/g' `grep "Hello World" -rl ./`
+sed -i 's/"Hello World"/"世界你好"/g' `grep "Hello World" -rl ./`
 sed -i 's/"广告屏蔽大师 Plus+"/"广告屏蔽"/g' `grep "广告屏蔽大师 Plus+" -rl ./`
 sed -i 's/"DDNSTO 远程控制"/"远程控制"/g' `grep "DDNSTO 远程控制" -rl ./`
 sed -i 's/"网络存储"/"存储设置"/g' `grep "网络存储" -rl ./`
@@ -66,7 +66,7 @@ sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='FICHEN(\$\(TZ=UTC-
 sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6chunjinban-$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
 
 #　修改主机名
-# sed -i "s/hostname='OpenWrt'/hostname='QihooV6'/g" package/base-files/files/bin/config_generate
+sed -i "s/hostname='OpenWrt'/hostname='QihooV6'/g" package/base-files/files/bin/config_generate
 
 # 添加自动挂载磁盘脚本
 # mkdir -p files/etc/hotplug.d/block && wget -O files/etc/hotplug.d/block/30-usbmount https://raw.githubusercontent.com/fichenx/P3TERX_Actions-OpenWrt/main/files/etc/hotplug.d/block/30-usbmount && chmod 755 files/etc/hotplug.d/block/30-usbmount
