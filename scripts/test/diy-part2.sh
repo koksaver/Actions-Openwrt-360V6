@@ -27,7 +27,7 @@ sed -i 's/Portable/Qihoo 360V6/g' package/addition/default-settings/files/99-def
 
 # git clone https://github.com/jerrykuku/luci-app-vssr.git package/luci-app-vssr
 
-cp -rf $GITHUB_WORKSPACE/patches/files ./files
+# cp -rf $GITHUB_WORKSPACE/patches/files ./files
 
 #　删除
 rm -rf package/feeds/luci/luci-app-ssr-plus
