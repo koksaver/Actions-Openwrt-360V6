@@ -43,7 +43,7 @@ config odhcpd 'odhcpd'
 
 config srvhost
 	option srv '_vlmcs._tcp'
-	option target 'Portable'
+	option target '360V6'
 	option port '1688'
 	option class '0'
 	option weight '100'

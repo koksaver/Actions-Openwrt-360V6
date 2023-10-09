@@ -59,17 +59,17 @@ config samba
 config tinyproxy
 	option init 'tinyproxy'
 
-config cpufreq
-	option init 'cpufreq'
-
-config nlbwmon
-	option init 'nlbwmon'
-
 config p910nd
 	option init 'p910nd'
 
 config zerotier
 	option init 'zerotier'
+
+config cpufreq
+	option init 'cpufreq'
+
+config nlbwmon
+	option init 'nlbwmon'
 
 config sqm
 	option init 'sqm'
@@ -83,6 +83,12 @@ config mwan3
 config adbyby
 	option init 'adbyby'
 
+config ddnsto
+	option init 'ddnsto'
+
+config autoreboot
+	option init 'autoreboot'
+
 config timewol
 	option init 'timewol'
 
@@ -92,14 +98,17 @@ config webrestriction
 config weburl
 	option init 'weburl'
 
+config parentcontrol
+	option init 'parentcontrol'
+
 config vlmcsd
 	option init 'kms'
 
+config wolplus
+	option init 'wolplus'
+
 config arpbind
 	option init 'arpbind'
-
-config autoreboot
-	option init 'autoreboot'
 
 config openclash
 	option init 'openclash'

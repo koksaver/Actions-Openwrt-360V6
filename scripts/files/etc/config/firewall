@@ -159,6 +159,11 @@ config rule 'adblock'
 	option proto 'tcp'
 	option dest_port '8118'
 
+config include 'parentcontrol'
+	option type 'script'
+	option path '/etc/parentcontrol.include'
+	option reload '1'
+
 config include 'openclash'
 	option type 'script'
 	option path '/var/etc/openclash.include'
