@@ -9,10 +9,10 @@ config samba
 config sambashare
 	option browseable 'yes'
 	option name '网络共享'
-	option path '/mnt/sda1'
 	option users 'root'
 	option read_only 'no'
 	option guest_ok 'no'
 	option create_mask '0777'
 	option dir_mask '0777'
+	option path '/mnt/sda5'
 
