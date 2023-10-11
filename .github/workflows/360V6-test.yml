@@ -150,7 +150,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && steps.compile.outputs.status == 'success' && !cancelled()
       run: |
-        echo -e "1 QCA IPQ60xx源码版本，4.4内核\n2 测试版本\n3 \n4 \n5 " >> release.txt
+        echo -e "1 QCA IPQ60xx源码版本，4.4内核\n2 测试版本\n3 管理地址：192.168.2.1\n4 帐号：root\n5 密码：password " >> release.txt
         echo "release_tag=$(date +"%Y.%m.%d-%H%M-test")" >> $GITHUB_OUTPUT
         echo "status=success" >> $GITHUB_OUTPUT
 
