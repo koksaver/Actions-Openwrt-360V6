@@ -19,7 +19,7 @@ index 14419ee399a9..8c7def89be02 100644
  src-git luci https://github.com/coolsnowwolf/luci
 +src-git kenzo https://github.com/kenzok8/openwrt-packages
  src-git routing https://github.com/coolsnowwolf/routing
- src-git telephony https://git.openwrt.org/feed/telephony.git
+ #src-git telephony https://git.openwrt.org/feed/telephony.git
  #src-git helloworld https://github.com/fw876/helloworld.git
 diff --git a/package/lean/autocore/files/arm/index.htm b/package/lean/autocore/files/arm/index.htm
 index 0537b09035ad..9f4836666bdb 100644
