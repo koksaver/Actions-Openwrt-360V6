@@ -17,7 +17,7 @@
 echo -e 'CONFIG_DEVEL=y\nCONFIG_CCACHE=y' >> .config
 
 # '修改默认主机名'
-sed -i 's/Portable/OpenWrt 360V6/g' package/addition/default-settings/files/99-default-settings
+# sed -i 's/Portable/OpenWrt 360V6/g' package/addition/default-settings/files/99-default-settings
 
 #　添加新插件
 
