@@ -22,8 +22,8 @@ on:
         default: 'false'
 
 env:
-  REPO_URL: https://github.com/sdf8057/ipq6000
-  REPO_BRANCH: master
+  REPO_URL: https://github.com/wwz09/IPQ360V6
+  REPO_BRANCH: main
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360V6_ssr.config
   DIY_P1_SH: ./scripts/360V6/diy-part1.sh
