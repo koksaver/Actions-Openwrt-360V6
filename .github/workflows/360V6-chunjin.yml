@@ -60,7 +60,12 @@ jobs:
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        
+
+    - name: 补丁
+      run: |
+        cp -rf patches/. openwrt/
+        cd openwrt
+        git am -s < netfilter.patch.b
     - name: 更新 & 安装 feeds & 执行脚本
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
