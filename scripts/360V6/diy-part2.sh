@@ -17,4 +17,5 @@
 echo 'src-git passwall_packages https://github.com/xiaorouji/openwrt-passwall-packages.git;main' >>feeds.conf.default
 echo 'src-git passwall https://github.com/xiaorouji/openwrt-passwall;main' >>feeds.conf.default
 echo 'src-git MyPackages https://github.com/koksaver/MyOpenWrtPackages' >>feeds.conf.default
+echo 'src-git passwall2 https://github.com/xiaorouji/openwrt-passwall2' >>feeds.conf.default
 #echo 'src-git 360v6 https://github.com/wwz09/360v6-packages' >>feeds.conf.default
